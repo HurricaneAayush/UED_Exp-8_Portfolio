@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body {
+    background-color: #161a2a;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+.page-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.page-title span {
+    color: #ff6b6b;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 15px;
+    padding: 5px 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.nav a.active {
+    color: #7e74f1;
+}
+
+.nav a:hover {
+    color: #ff6b6b;
+}
+
+/* Projects grid
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.project-card {
+    background-color: #1e2239;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+}
+
+.project-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.project-category {
+    font-size: 14px;
+    color: #a0a5b9;
+    margin-bottom: 15px;
+}
+
+.project-desc {
+    font-size: 14px;
+    color: #a0a5b9;
+    line-height: 1.6;
+    margin-bottom: 15px;
+} */
+
+/* Projects grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.project-card {
+    background-color: #1e2239;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-card.hide {
+    opacity: 0;
+    transform: scale(0.85);
+    position: absolute;
+    pointer-events: none;
+}
+
+/* Normal content */
+.project-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.project-category {
+    font-size: 14px;
+    color: #a0a5b9;
+    margin-bottom: 12px;
+}
+
+.project-desc {
+    font-size: 14px;
+    color: #a0a5b9;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Read More Button */
+.read-more {
+    display: inline-block;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #7e74f1;
+    color: #7e74f1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.4s ease;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    background: #7e74f1;
+    color: #fff;
+}
+
+/* Project Details Overlay */
+.project-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 34, 57, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    transform: translateY(100%);
+    transition: 0.5s ease;
+}
+
+/* Text part inside overlay */
+.project-meta {
+    flex: 1;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.project-info {
+    color: #a0a5b9;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+/* Image part */
+.project-image img {
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Background dim when hovered */
+.project-card::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    transition: background-color 0.5s;
+}
+
+/* Overlay is visible when the card has the 'active' class */
+.project-card.active .project-details {
+    transform: translateY(0);
+}
+
+.project-card.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dims the background only when the overlay is active */
+}
+
+/* Initially invisible */
+.project-card::before {
+    visibility: hidden; /* Initially, no dim effect */
+}
+
+/* Show dimmed background on hover or when active */
+.project-card.active::before {
+    visibility: visible; /* Show when 'active' class is added */
+}
+
+/* Contact section */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-info-card {
+    background-color: #1e2239;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #161a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.icon-circle svg {
+    width: 20px;
+    height: 20px;
+    fill: #ff6b6b;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-text {
+    font-size: 14px;
+    color: #a0a5b9;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    background-color: #1e2239;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.form-textarea {
+    background-color: #1e2239;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    resize: none;
+    height: 120px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: transparent;
+    border: 1px solid #1e2239;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+/* Stats section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 80px;
+}
+
+.stat-card {
+    background-color: #1e2239;
+    border-radius: 10px;
+    padding: 25px 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.stat-number {
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 5px;
+    transition: 0.4s ease;
+}
+
+.stat-label {
+    font-size: 18px;
+    color: #a0a5b9;
+    transition: 0.4s ease;
+}
+
+/* Hovering on card, not individually */
+.stat-card:hover .stat-number {
+    color: #ff6b6b;
+}
+
+.stat-card:hover .stat-label {
+    color: #7e74f1;
+}
+
+/* News section */
+.news-section {
+    margin-top: 60px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.news-card {
+    background-color: #1e2239;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgb(80, 80, 80);
+}
+
+.news-image {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    padding: 14px;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgb(80, 80, 80, 0.8);
+    transition: transform 0.3s ease; /* Smooth rotation */
+    display: block;
+}
+
+.news-card:hover .news-image img{
+    transform: scale(1.02);
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-date {
+    font-size: 12px;
+    color: #a0a5b9;
+    margin-bottom: 10px;
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.read-more-link {
+    color: #7e74f1;;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer {
+    background-color: #1e2239;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 15px;
+    color: rgb(204, 203, 203);
+    height: 70px;
+}
